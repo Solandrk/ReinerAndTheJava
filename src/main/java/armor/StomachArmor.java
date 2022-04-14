@@ -5,7 +5,7 @@ public class StomachArmor extends Armor {
         super(durability, k);
     }
 
-    public static StomachArmor create() {
-        return new StomachArmor(-1, -1);
+    public static StomachArmor create(double durability,double k) {
+        return new StomachArmor(durability, k);
     }
 }

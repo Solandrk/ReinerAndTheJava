@@ -5,7 +5,7 @@ public class FaceArmor extends Armor {
         super(durability, k);
     }
 
-    public static FaceArmor create() {
-        return new FaceArmor(-1, -1);
+    public static FaceArmor create(double durability,double k) {
+        return new FaceArmor(durability, k);
     }
 }

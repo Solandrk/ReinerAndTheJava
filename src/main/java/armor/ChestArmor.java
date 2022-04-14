@@ -5,7 +5,7 @@ public class ChestArmor extends Armor {
         super(durability, k);
     }
 
-    public static ChestArmor create() {
-        return new ChestArmor(-1, -1);
+    public static ChestArmor create(double durability,double k) {
+        return new ChestArmor(durability, k);
     }
 }

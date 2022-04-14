@@ -3,39 +3,40 @@ package titans;
 import organ.*;
 
 public class ArmoredTitan {
+
     private FaceOrgan faceOrgan;
     private NeckOrgan neckOrgan;
     private ArmOrgan rightArmOrgan;
     private ArmOrgan leftArmOrgan;
     private ChestOrgan chestOrgan;
     private StomachOrgan stomachOrgan;
-    private LegOrgan rightLegArmor;
-    private LegOrgan leftLegArmor;
+    private LegOrgan rightLegOrgan;
+    private LegOrgan leftLegOrgan;
     private FootOrgan rightFootOrgan;
     private FootOrgan leftFootOrgan;
-
     private ArmoredTitan(
             FaceOrgan faceOrgan,
-			NeckOrgan neckOrgan,
-			ArmOrgan rightArmOrgan,
-			ArmOrgan leftArmOrgan,
-			ChestOrgan chestOrgan,
-			StomachOrgan stomachOrgan,
-			LegOrgan rightLegArmor,
-			LegOrgan leftLegArmor,
-			FootOrgan rightFootOrgan,
-			FootOrgan leftFootOrgan) {
+            NeckOrgan neckOrgan,
+            ArmOrgan rightArmOrgan,
+            ArmOrgan leftArmOrgan,
+            ChestOrgan chestOrgan,
+            StomachOrgan stomachOrgan,
+            LegOrgan rightLegArmor,
+            LegOrgan leftLegArmor,
+            FootOrgan rightFootOrgan,
+            FootOrgan leftFootOrgan) {
         this.faceOrgan = faceOrgan;
         this.neckOrgan = neckOrgan;
         this.rightArmOrgan = rightArmOrgan;
         this.leftArmOrgan = leftArmOrgan;
         this.chestOrgan = chestOrgan;
         this.stomachOrgan = stomachOrgan;
-        this.rightLegArmor = rightLegArmor;
-        this.leftLegArmor = leftLegArmor;
+        this.rightLegOrgan = rightLegArmor;
+        this.leftLegOrgan = leftLegArmor;
         this.rightFootOrgan = rightFootOrgan;
         this.leftFootOrgan = leftFootOrgan;
     }
+
 
     public FaceOrgan getFaceOrgan() {
         return faceOrgan;
@@ -61,12 +62,12 @@ public class ArmoredTitan {
         return stomachOrgan;
     }
 
-    public LegOrgan getRightLegArmor() {
-        return rightLegArmor;
+    public LegOrgan getRightLegOrgan() {
+        return rightLegOrgan;
     }
 
-    public LegOrgan getLeftLegArmor() {
-        return leftLegArmor;
+    public LegOrgan getLeftLegOrgan() {
+        return leftLegOrgan;
     }
 
     public FootOrgan getRightFootOrgan() {
@@ -101,12 +102,12 @@ public class ArmoredTitan {
         this.stomachOrgan = stomachOrgan;
     }
 
-    private void setRightLegArmor(LegOrgan rightLegArmor) {
-        this.rightLegArmor = rightLegArmor;
+    private void setRightLegOrgan(LegOrgan rightLegOrgan) {
+        this.rightLegOrgan = rightLegOrgan;
     }
 
-    private void setLeftLegArmor(LegOrgan leftLegArmor) {
-        this.leftLegArmor = leftLegArmor;
+    private void setLeftLegOrgan(LegOrgan leftLegOrgan) {
+        this.leftLegOrgan = leftLegOrgan;
     }
 
     private void setRightFootOrgan(FootOrgan rightFootOrgan) {
@@ -117,7 +118,55 @@ public class ArmoredTitan {
         this.leftFootOrgan = leftFootOrgan;
     }
 
-    public static ArmoredTitan create() {
-        return null;
+
+    private int titanCondition()
+    {
+        return  faceOrgan.isDestroyed() + neckOrgan.isDestroyed() + leftArmOrgan.isDestroyed() + rightArmOrgan.isDestroyed()
+                + chestOrgan.isDestroyed() + stomachOrgan.isDestroyed() + rightLegOrgan.isDestroyed() + leftLegOrgan.isDestroyed()+
+                rightFootOrgan.isDestroyed() + leftFootOrgan.isDestroyed();
+    }
+
+    public static ArmoredTitan create(FaceOrgan faceOrgan,
+                                      NeckOrgan neckOrgan,
+                                      ArmOrgan rightArmOrgan,
+                                      ArmOrgan leftArmOrgan,
+                                      ChestOrgan chestOrgan,
+                                      StomachOrgan stomachOrgan,
+                                      LegOrgan rightLegArmor,
+                                      LegOrgan leftLegArmor,
+                                      FootOrgan rightFootOrgan,
+                                      FootOrgan leftFootOrgan) {
+        return new ArmoredTitan(
+                faceOrgan,
+                neckOrgan,
+                rightArmOrgan,
+                leftArmOrgan,
+                chestOrgan,
+                stomachOrgan,
+                rightLegArmor,
+                leftLegArmor,
+                rightFootOrgan,
+                leftFootOrgan);
+    }
+    @Override
+    public String toString()
+    {
+        return "Face Organ : "+faceOrgan+
+                "Neck Organ : " + neckOrgan +
+                "Right Arm Organ : " + rightArmOrgan +
+                "Left Arm Organ : " + leftArmOrgan +
+                "Chest Organ : " + chestOrgan +
+                "Stomach Organ : " + stomachOrgan +
+                "Right Leg Organ : " + rightLegOrgan +
+                "Left Leg Organ : " + leftLegOrgan +
+                "Right Food : " + rightFootOrgan +
+                "Left Food : " + leftFootOrgan;
+     }
+
+    public boolean isAlive() {
+        if (titanCondition() >= 4)
+        {
+            return false;
+        }else return true;
     }
 }

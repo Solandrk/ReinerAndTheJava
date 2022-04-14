@@ -5,7 +5,7 @@ public class LegArmor extends Armor {
         super(durability, k);
     }
 
-    public static LegArmor create() {
-        return new LegArmor(-1, -1);
+    public static LegArmor create(double durability,double k) {
+        return new LegArmor(durability, k);
     }
 }

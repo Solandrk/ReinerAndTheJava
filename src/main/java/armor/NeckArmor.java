@@ -5,7 +5,7 @@ public class NeckArmor extends Armor {
         super(durability, k);
     }
 
-    public static NeckArmor create() {
-        return new NeckArmor(-1, -1);
+    public static NeckArmor create(double durability,double k) {
+        return new NeckArmor(durability, k);
     }
 }

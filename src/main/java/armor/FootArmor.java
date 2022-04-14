@@ -5,7 +5,7 @@ public class FootArmor extends Armor {
         super(durability, k);
     }
 
-    public static FootArmor create() {
-        return new FootArmor(-1, -1);
+    public static FootArmor create(double durability,double k) {
+        return new FootArmor(durability, k);
     }
 }
